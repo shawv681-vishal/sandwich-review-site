@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sandwich Wala Reviews</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <h1>🥪 Sandwich Wala</h1>
+      <p>Fresh sandwiches, honest reviews.</p>
+    </div>
+
+    <div class="review-form">
+
+      <h2>Leave a Review</h2>
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+      >
+
+      <select id="rating">
+        <option value="">Select Rating</option>
+        <option value="5 ⭐">5 ⭐ Excellent</option>
+        <option value="4 ⭐">4 ⭐ Very Good</option>
+        <option value="3 ⭐">3 ⭐ Good</option>
+        <option value="2 ⭐">2 ⭐ Average</option>
+        <option value="1 ⭐">1 ⭐ Poor</option>
+      </select>
+
+      <textarea
+        id="review"
+        placeholder="Write your experience here..."
+      ></textarea>
+
+      <button onclick="addReview()">
+        Submit Review
+      </button>
+
+    </div>
+
+    <div class="reviews-section">
+
+      <h2>Customer Reviews</h2>
+
+      <div id="reviews"></div>
+
+    </div>
+
+  </div>
+
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
