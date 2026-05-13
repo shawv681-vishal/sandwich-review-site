@@ -80,16 +80,22 @@ async function loadReviews(){
     totalRating += parseInt(data.rating);
 
 
-    // Format Date
+    // Safe Date Formatting
 
-    const reviewDate = new Date(data.createdAt).toLocaleDateString(
-      "en-GB",
-      {
-        day: "numeric",
-        month: "short",
-        year: "numeric"
-      }
-    );
+    let reviewDate = "";
+
+    if(data.createdAt){
+
+      reviewDate = new Date(data.createdAt).toLocaleDateString(
+        "en-GB",
+        {
+          day: "numeric",
+          month: "short",
+          year: "numeric"
+        }
+      );
+
+    }
 
 
     reviewsDiv.innerHTML += `
