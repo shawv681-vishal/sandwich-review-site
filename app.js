@@ -67,19 +67,37 @@ async function loadReviews(){
 
     const data = doc.data();
 
-    reviewsDiv.innerHTML += `
+   reviewsDiv.innerHTML += `
 
-      <div class="review-card">
+  <div class="review-card">
 
-        <h3>${data.name}</h3>
+    <div class="avatar">
+      ${data.name.charAt(0).toUpperCase()}
+    </div>
 
-        <p><strong>${data.rating}</strong></p>
+    <div class="review-content">
 
-        <p>${data.review}</p>
+      <div class="review-top">
+
+        <div class="review-name">
+          ${data.name}
+        </div>
+
+        <div class="review-rating">
+          ${data.rating}
+        </div>
 
       </div>
 
-    `;
+      <div class="review-text">
+        ${data.review}
+      </div>
+
+    </div>
+
+  </div>
+
+`;
   });
 }
 
