@@ -10,8 +10,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 
-// 🔥 YOUR FIREBASE CONFIG
-// Replace these values with your own Firebase config
+// Firebase Config
 
 const firebaseConfig = {
 
@@ -67,37 +66,39 @@ async function loadReviews(){
 
     const data = doc.data();
 
-   reviewsDiv.innerHTML += `
+    reviewsDiv.innerHTML += `
 
-  <div class="review-card">
+      <div class="review-card">
 
-    <div class="avatar">
-      ${data.name.charAt(0).toUpperCase()}
-    </div>
-
-    <div class="review-content">
-
-      <div class="review-top">
-
-        <div class="review-name">
-          ${data.name}
+        <div class="avatar">
+          ${data.name.charAt(0).toUpperCase()}
         </div>
 
-        <div class="review-rating">
-          ${data.rating}
+        <div class="review-content">
+
+          <div class="review-top">
+
+            <div class="review-name">
+              ${data.name}
+            </div>
+
+            <div class="review-rating">
+              ${data.rating}
+            </div>
+
+          </div>
+
+          ${data.review ? `
+            <div class="review-text">
+              ${data.review}
+            </div>
+          ` : ""}
+
         </div>
 
       </div>
 
-      <div class="review-text">
-        ${data.review}
-      </div>
-
-    </div>
-
-  </div>
-
-`;
+    `;
   });
 }
 
@@ -117,13 +118,13 @@ window.addReview = async function(){
 
   if(name === "" || rating === ""){
 
-    alert("Please fill all fields");
+    alert("Please enter name and rating");
 
     return;
   }
 
 
-  // Save to Firebase
+  // Save Review
 
   await addDoc(collection(db, "reviews"), {
 
@@ -154,6 +155,6 @@ window.addReview = async function(){
 };
 
 
-// Load reviews when website opens
+// Initial Load
 
 loadReviews();
