@@ -163,7 +163,11 @@ window.addReview = async function(){
     review: review,
 
    createdAt: Date.now(),
-date: new Date().toLocaleDateString()
+date: new Date().toLocaleDateString("en-GB", {
+  day: "numeric",
+  month: "short",
+  year: "numeric"
+})
 
   });
 
