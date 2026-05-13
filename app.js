@@ -89,17 +89,21 @@ async function loadReviews(){
 
         <div class="review-content">
 
-          <div class="review-top">
+         <div class="review-top">
 
-            <div class="review-name">
-              ${data.name}
-            </div>
+  <div class="review-name">
+    ${data.name}
+  </div>
 
-            <div class="review-rating">
-              ${data.rating}
-            </div>
+  <div class="review-rating">
+    ${data.rating}
+  </div>
 
-          </div>
+</div>
+
+<div class="review-date">
+  ${data.date || ""}
+</div>
 
           ${data.review ? `
             <div class="review-text">
