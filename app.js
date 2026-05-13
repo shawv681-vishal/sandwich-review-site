@@ -115,7 +115,7 @@ window.addReview = async function(){
 
   // Validation
 
-  if(name === "" || rating === "" || review === ""){
+  if(name === "" || rating === ""){
 
     alert("Please fill all fields");
 
