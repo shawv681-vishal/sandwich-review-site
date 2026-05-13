@@ -53,18 +53,31 @@ async function loadReviews(){
 
   reviewsDiv.innerHTML = "";
 
+  let totalRating = 0;
+
+  let totalReviews = querySnapshot.size;
+
+
   if(querySnapshot.empty){
 
     reviewsDiv.innerHTML = `
       <p>No reviews yet. Be the first one ⭐</p>
     `;
 
+    document.getElementById("average-rating").innerText = "0.0";
+
+    document.getElementById("total-reviews").innerText =
+      "(0 user reviews)";
+
     return;
   }
+
 
   querySnapshot.forEach((doc) => {
 
     const data = doc.data();
+
+    totalRating += parseInt(data.rating);
 
     reviewsDiv.innerHTML += `
 
@@ -100,6 +113,17 @@ async function loadReviews(){
 
     `;
   });
+
+
+  // Average Rating
+
+  const average = (totalRating / totalReviews).toFixed(1);
+
+  document.getElementById("average-rating").innerText = average;
+
+  document.getElementById("total-reviews").innerText =
+    `(${totalReviews} user reviews)`;
+
 }
 
 
