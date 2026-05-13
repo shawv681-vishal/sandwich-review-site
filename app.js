@@ -79,6 +79,19 @@ async function loadReviews(){
 
     totalRating += parseInt(data.rating);
 
+
+    // Format Date
+
+    const reviewDate = new Date(data.createdAt).toLocaleDateString(
+      "en-GB",
+      {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      }
+    );
+
+
     reviewsDiv.innerHTML += `
 
       <div class="review-card">
@@ -89,21 +102,21 @@ async function loadReviews(){
 
         <div class="review-content">
 
-         <div class="review-top">
+          <div class="review-top">
 
-  <div class="review-name">
-    ${data.name}
-  </div>
+            <div class="review-name">
+              ${data.name}
+            </div>
 
-  <div class="review-rating">
-    ${data.rating}
-  </div>
+            <div class="review-rating">
+              ${data.rating}
+            </div>
 
-</div>
+          </div>
 
-<div class="review-date">
-  ${data.date || ""}
-</div>
+          <div class="review-date">
+            ${reviewDate}
+          </div>
 
           ${data.review ? `
             <div class="review-text">
@@ -162,12 +175,7 @@ window.addReview = async function(){
 
     review: review,
 
-   createdAt: Date.now(),
-date: new Date().toLocaleDateString("en-GB", {
-  day: "numeric",
-  month: "short",
-  year: "numeric"
-})
+    createdAt: Date.now()
 
   });
 
