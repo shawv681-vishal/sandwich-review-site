@@ -70,19 +70,49 @@ button:hover{
 }
 
 .review-card{
-  border: 1px solid #e2e2e2;
-  padding: 18px;
-  border-radius: 10px;
-  margin-top: 15px;
-  background: #fafafa;
+  display: flex;
+  gap: 12px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-.review-card h3{
-  margin: 0;
+.avatar{
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #222;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.review-content{
+  width: 100%;
+}
+
+.review-top{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-name{
+  font-weight: bold;
   color: #222;
+  font-size: 16px;
 }
 
-.review-card p{
-  margin-top: 8px;
-  color: #555;
+.review-rating{
+  color: #ff9800;
+  font-size: 14px;
+}
+
+.review-text{
+  margin-top: 6px;
+  color: #444;
+  line-height: 1.5;
 }
