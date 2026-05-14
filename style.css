@@ -196,3 +196,23 @@ button:hover{
   color: #888;
   margin-top: 4px;
 }
+.star-rating{
+  position: relative;
+  display: inline-block;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.star-back{
+  color: #ddd;
+}
+
+.star-front{
+  color: #fbbc04;
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0%;
+}
