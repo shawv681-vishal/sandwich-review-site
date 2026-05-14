@@ -58,6 +58,8 @@ async function loadReviews(){
   let totalReviews = querySnapshot.size;
 
 
+  // No Reviews
+
   if(querySnapshot.empty){
 
     reviewsDiv.innerHTML = `
@@ -69,9 +71,13 @@ async function loadReviews(){
     document.getElementById("total-reviews").innerText =
       "(0 user reviews)";
 
+    document.getElementById("stars-display").style.width = "0%";
+
     return;
   }
 
+
+  // Load Each Review
 
   querySnapshot.forEach((doc) => {
 
@@ -80,7 +86,7 @@ async function loadReviews(){
     totalRating += parseInt(data.rating);
 
 
-    // Safe Date Formatting
+    // Review Date
 
     let reviewDate = "";
 
@@ -97,6 +103,8 @@ async function loadReviews(){
 
     }
 
+
+    // Review Card
 
     reviewsDiv.innerHTML += `
 
@@ -143,25 +151,17 @@ async function loadReviews(){
   const average = (totalRating / totalReviews).toFixed(1);
 
   document.getElementById("average-rating").innerText = average;
-  const roundedRating = Math.round(average);
 
-let stars = "";
 
-for(let i = 1; i <= 5; i++){
+  // Real Dynamic Stars
 
-  if(i <= roundedRating){
+  const starPercentage = (average / 5) * 100;
 
-    stars += "★";
+  document.getElementById("stars-display").style.width =
+    `${starPercentage}%`;
 
-  } else {
 
-    stars += "☆";
-
-  }
-
-}
-
-document.getElementById("stars-display").innerText = stars;
+  // Total Reviews
 
   document.getElementById("total-reviews").innerText =
     `(${totalReviews} user reviews)`;
@@ -205,7 +205,7 @@ window.addReview = async function(){
   });
 
 
-  // Clear Fields
+  // Clear Inputs
 
   document.getElementById("name").value = "";
 
