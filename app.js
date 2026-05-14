@@ -143,6 +143,25 @@ async function loadReviews(){
   const average = (totalRating / totalReviews).toFixed(1);
 
   document.getElementById("average-rating").innerText = average;
+  const roundedRating = Math.round(average);
+
+let stars = "";
+
+for(let i = 1; i <= 5; i++){
+
+  if(i <= roundedRating){
+
+    stars += "★";
+
+  } else {
+
+    stars += "☆";
+
+  }
+
+}
+
+document.getElementById("stars-display").innerText = stars;
 
   document.getElementById("total-reviews").innerText =
     `(${totalReviews} user reviews)`;
